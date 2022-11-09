@@ -37,13 +37,13 @@ public class CosmosDB {
 	/**
 	 * Cosmos DB database
 	 */
-	private CosmosDatabase cosmosDatabase;
+	public CosmosDatabase cosmosDatabase;
 
 	/**
 	 * Cosmos DB containers
 	 */
-	private CosmosContainer customerContainer;
-	private CosmosContainer ordersContainer;
+	public CosmosContainer customerContainer;
+	public CosmosContainer ordersContainer;
 
 	/**
 	 * Main method
@@ -113,7 +113,6 @@ public class CosmosDB {
 	 * @throws FileNotFoundException
 	 */
 	public void load() throws Exception {
-		// TODO: Recreate each container and load them with data
 		System.out.println("\nLoading Data.");
 		Gson gson = new Gson();
 
@@ -149,8 +148,7 @@ public class CosmosDB {
 	 *                   if an error occurs
 	 */
 	public String sampleQuery(int custkey) throws Exception {
-		// TODO: Write query #1
-		System.out.println("\nExecuting query1.");
+		System.out.println("\nExecuting sample query.");
 		StringBuilder answer = new StringBuilder();
 
 		// SQL query to get customer by custkey
@@ -200,7 +198,7 @@ public class CosmosDB {
 	}
 
 	/**
-	 * Query returns all urgent orders placed on or before July, 26, 1998 ordered by
+	 * Query returns all urgent orders placed on or after July, 26, 1998 ordered by
 	 * total price descending
 	 * 
 	 * @throws Exception
