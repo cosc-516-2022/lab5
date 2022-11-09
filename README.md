@@ -11,7 +11,6 @@ Login to Azure. In the Azure Portal, click on `More services` then select `Datab
 
 <img src="img/1_azure_portal.png" alt="Azure Portal" width="800">
 <img src="img/2_azure_cosmos_db.png" alt="Azure Cosmos Databases" width="800">
-<br>
 
 ## Create Azure Cosmos DB Account
 Select first option with `Azure Cosmos DB NoSQL` and click `Create`. 
@@ -37,7 +36,6 @@ Click `Review + create` or explore remaining configurations and then create.
 After deployment is complete, click `Go to resource`.
 
 <img src="img/5_deployment_complete.png" alt="Deployment Complete" width="800">
-<br>
 
 ## Create the Database
 From the Cosmos DB account home page, click `Data Explorer` in the left side menu.
@@ -45,7 +43,6 @@ From the Cosmos DB account home page, click `Data Explorer` in the left side men
 Click the down arrow beside `New Container` and select `New Database`
 
 <img src="img/6_new_database.png" alt="New Database" width="800">
-<br>
 
 Use `cosmos516` for the Database id.
 <br>
@@ -53,7 +50,6 @@ Leave `Provision throughput` selected.
 <br>
 
 <img src="img/7_create_database.png" alt="New Database" width="800">
-<br>
 
 ## Create the Customer Container
 For Database id, select `Use existing` and use `cosmos516`
@@ -96,7 +92,6 @@ Select another region to add to the Cosmos DB account.
 Click `Save`.
 
 <img src="img/11_add_region.png" alt="Add Region" width="800">
-<br>
 
 ## OPTIONAL: Default consistency
 
@@ -107,7 +102,7 @@ Under settings in the left side menu, click `Default consistency`.
 Select the `Bounded Staleness` consistency level.
 
 <img src="img/12_bounded_staleness.png" alt="Replicate Data Globally" width="800">
-<br>
+
 Set `Maximum Lag (Time)` to `1 day`.
 <br>
 Set `Maximum Lag (Operations)` to `100000`.
@@ -115,7 +110,6 @@ Set `Maximum Lag (Operations)` to `100000`.
 Click `Save`.
 
 <img src="img/13_default_consitency.png" alt="Default Consistency" width="800">
-<br>
 
 ## Install Maven
 
