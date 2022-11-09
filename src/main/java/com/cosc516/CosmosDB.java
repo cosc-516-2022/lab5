@@ -88,7 +88,6 @@ public class CosmosDB {
 	public void close() {
 		// TODO: Close the connection to the database
 		System.out.println("\nClosing connection.");
-
 	}
 
 	/**
