@@ -34,8 +34,12 @@ After deployment is complete, click `Go to resource`.
 <img src="img/5_deployment_complete.png" alt="Deployment Complete" width="800">
 
 ## Configure Azure Cosmos DB Account
-### Replicate data globally
+### OPTIONAL: Replicate data globally
+
+The lab does not require global replication to complete, so this next part is optional as it may have some cost.
+
 Under settings in the left side menu, click `Replicate data globally`.
+
 <br>
 Set Configure regions Multi-region writes to `Enabled`
 <img src="img/6_enable_multi_region_writes.png" alt="Enable Multi-region Writes" width="800">
@@ -99,16 +103,21 @@ For Partition key, use `/o_custkey`.
 Click `OK`
 <img src="img/13_create_orders_container.png" alt="Create Orders Container" width="800">
 
+## Install Maven
+
+To compile and run the code, Maven is required. [Maven install instructions](https://maven.apache.org/install.html) are available including [installation on Windows](https://www.javatpoint.com/how-to-install-maven).
+
 ## Tasks
+
 To test your database, write Java code using VS Code. The file to edit is `CosmosDB.java`.  The test file is `TestCosmosDB.java`.  Fill in the methods requested (search for **TODO**).  Marks for each method are below.  You receive the marks if you pass the JUnit tests AND have followed the requirements asked in the question (including documentation and proper formatting).
 
-- +1 mark - Write the method `connect()` to make a connection to the database.
+- +1 mark - Write the method `connect()` to make a connection to the database. Sample code is available in a [CosmosDB Tutorial](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-java?tabs=sync).
 - +2 marks - Write `drop()` to drop the containers from the database. 
-- +4 marks - Write `load()` to recreate containers and load the data into the database.
-- +2 marks - Write `query1()` to get customer by custkey.
+- +3 marks - Write `load()` to load the orders container. Code for loading the customer container is already provided.
+- +2 marks - Write `query1()` to get an order by orderkey. Use the sampleQuery() to help get started that returns a customer by customer key. Note that for all queries you must define a Java class that represents the JSON object.
 - +3 marks - Write `query2()` to get number of customers in each market segment.
 - +4 marks - Write `query3()` to get all urgent orders placed on or before July, 26, 1998 ordered by total price descending.
-- +5 marks - Write `query4()` to get a customer and all orders by custkey.
+- +6 marks - Write `query4()` to get a customer and all orders by custkey.
 
 **Total Marks: 20**
 
