@@ -136,7 +136,7 @@ public class CosmosDB {
 			System.out.println(e);
 		}
 
-		// TODO: Read the order data. Need to create an Order class to represent JSON
+		// TODO: Load the order data. Need to create an Order class to represent JSON
 		// document. See Customer.java as an example.
 
 	}
@@ -166,7 +166,7 @@ public class CosmosDB {
 	}
 
 	/**
-	 * Sample query returns order by orderkey
+	 * Query returns order by orderkey
 	 * 
 	 * @throws Exception
 	 *                   if an error occurs

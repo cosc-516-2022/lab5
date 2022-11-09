@@ -95,7 +95,7 @@ Click `Save`.
 
 ## OPTIONAL: Default consistency
 
-The lab does not require global replication to complete, so this next part is optional as it may have some cost.
+The lab does not require the default consistency to be explicitly set, so this next part is optional.
 <br>
 Under settings in the left side menu, click `Default consistency`.
 <br>
@@ -119,12 +119,18 @@ To compile and run the code, Maven is required. [Maven install instructions](htt
 
 To test your database, write Java code using VS Code. The file to edit is `CosmosDB.java`.  The test file is `TestCosmosDB.java`.  Fill in the methods requested (search for **TODO**).  Marks for each method are below.  You receive the marks if you pass the JUnit tests AND have followed the requirements asked in the question (including documentation and proper formatting).
 
-- +1 mark - Write the method `connect()` to make a connection to the database. Sample code is available in a [CosmosDB Tutorial](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-java?tabs=sync).
+Some sample code is available in the [Cosmos DB Quickstart Guide](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-java?tabs=sync).
+
+More in-depth sample code is available in the [Azure Cosmos DB for NoSQL: Java SDK v4 examples](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/samples-java).
+
+- +1 mark - Write `connect()` to make a connection to the database. 
 - +2 marks - Write `drop()` to drop the containers from the database. 
-- +3 marks - Write `load()` to load the orders container. Code for loading the customer container is already provided.
-- +2 marks - Write `query1()` to get an order by orderkey. Use the sampleQuery() to help get started that returns a customer by customer key. Note that for all queries you must define a Java class that represents the JSON object.
+- +3 marks - Write `load()` to load the orders container. Code for loading the customer container is provided.
+- +2 marks - Write `query1()` to get an order by orderkey.
+    - The `sampleQuery()` method provides an example to get customer by customer key
+    - Note that for all queries you must define a Java class that represents the JSON object.
 - +3 marks - Write `query2()` to get number of customers in each market segment.
-- +4 marks - Write `query3()` to get all urgent orders placed on or after July, 26, 1998 ordered by total price descending.
+- +4 marks - Write `query3()` to get urgent orders placed on or after July 26, 1998. Sort by price descending.
 - +6 marks - Write `query4()` to get a customer and all orders by custkey.
 
 **Total Marks: 20**
