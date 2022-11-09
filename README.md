@@ -117,7 +117,7 @@ To compile and run the code, Maven is required. [Maven install instructions](htt
 
 ## Tasks
 
-To test your database, write Java code using VS Code. The file to edit is `CosmosDB.java`.  The test file is `TestCosmosDB.java`.  Fill in the methods requested (search for **TODO**).  Marks for each method are below.  You receive the marks if you pass the JUnit tests AND have followed the requirements asked in the question (including documentation and proper formatting).
+To test your database, write Java code using VS Code. The file to edit is `CosmosDB.java`.  The test file is `TestCosmosDB.java`.  Fill in the methods requested (search for **TODO**).  Marks for each method are below. You receive the marks if you pass the JUnit tests AND have followed the requirements asked in the question (including documentation and proper formatting).
 
 Some sample code is available in the [Cosmos DB Quickstart Guide](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-java?tabs=sync).
 
