@@ -21,7 +21,7 @@ public class CosmosDB {
 	 * Cosmos DB endpoint
 	 */
 	// TODO: Fill in your Cosmos DB URI
-	private static final String URI = ""; 
+	private static final String URI = "";
 
 	/**
 	 * Cosmos DB primary key
@@ -44,14 +44,14 @@ public class CosmosDB {
 	 */
 	private CosmosContainer customerContainer;
 	private CosmosContainer ordersContainer;
-	
+
 	/**
 	 * Main method
 	 * 
 	 * @param args
 	 *             no arguments required
 	 */
-	public static void main(String[] args) throws Exception {		
+	public static void main(String[] args) throws Exception {
 		CosmosDB qcosmos = new CosmosDB();
 		try {
 			qcosmos.connect();
@@ -65,7 +65,7 @@ public class CosmosDB {
 		} catch (Exception e) {
 			System.out.println(e);
 		} finally {
-            qcosmos.close();
+			qcosmos.close();
 		}
 	}
 
@@ -78,8 +78,7 @@ public class CosmosDB {
 	public CosmosClient connect() throws Exception {
 		// TODO: Connect to Azure Cosmos DB
 		System.out.println("\nConnecting to database.");
-				
-		
+
 		return cosmosClient;
 	}
 
@@ -88,12 +87,14 @@ public class CosmosDB {
 	 */
 	public void close() {
 		// TODO: Close the connection to the database
-		System.out.println("\nClosing connection.");	
+		System.out.println("\nClosing connection.");
 
 	}
-	
+
 	/**
-	 * Drops the containers from the database. Handle errors if containers do not exist.
+	 * Drops the containers from the database. Handle errors if containers do not
+	 * exist.
+	 * 
 	 * @throws Exception
 	 */
 	public void drop() {
@@ -103,11 +104,12 @@ public class CosmosDB {
 		// Delete the customer container
 
 		// Delete the orders container
-	
+
 	}
 
 	/**
 	 * Loads data into database.
+	 * 
 	 * @throws FileNotFoundException
 	 */
 	public void load() throws Exception {
@@ -123,39 +125,42 @@ public class CosmosDB {
 
 			// Create customer container and load data
 			System.out.println("Loading customer data.");
-			cosmosDatabase.createContainerIfNotExists("customer", "/c_custkey", ThroughputProperties.createManualThroughput(400));
+			cosmosDatabase.createContainerIfNotExists("customer", "/c_custkey",
+					ThroughputProperties.createManualThroughput(400));
 			customerContainer = cosmosDatabase.getContainer("customer");
-			for (Customer customer : customers) {	
-				customer.setId(""+customer.getC_custkey());			
+			for (Customer customer : customers) {
+				customer.setId("" + customer.getC_custkey());
 				customerContainer.createItem(customer);
 			}
 			reader.close();
 		} catch (Exception e) {
 			System.out.println(e);
-		} 
- 
-		// TODO: Read the order data. Need to create an Order class to represent JSON document. See Customer.java as an example.
-		
+		}
+
+		// TODO: Read the order data. Need to create an Order class to represent JSON
+		// document. See Customer.java as an example.
+
 	}
-	
+
 	/**
 	 * Sample query returns customer by custkey
 	 * 
 	 * @throws Exception
-	 * 		if an error occurs
+	 *                   if an error occurs
 	 */
 	public String sampleQuery(int custkey) throws Exception {
 		// TODO: Write query #1
 		System.out.println("\nExecuting query1.");
 		StringBuilder answer = new StringBuilder();
-		
+
 		// SQL query to get customer by custkey
 		String sql = "SELECT * FROM c WHERE c.c_custkey = " + custkey;
-		CosmosPagedIterable<Customer> response = customerContainer.queryItems(sql, new CosmosQueryRequestOptions(), Customer.class);
+		CosmosPagedIterable<Customer> response = customerContainer.queryItems(sql, new CosmosQueryRequestOptions(),
+				Customer.class);
 		if (response.iterator().hasNext()) {
 			Customer customer = response.iterator().next();
 			answer.append(new Gson().toJson(customer).toString());
-        }
+		}
 
 		// Print out json response and return it to calling function
 		System.out.println(answer.toString());
@@ -166,13 +171,12 @@ public class CosmosDB {
 	 * Sample query returns order by orderkey
 	 * 
 	 * @throws Exception
-	 * 		if an error occurs
+	 *                   if an error occurs
 	 */
 	public String query1(int orderkey) throws Exception {
 		// TODO: Write query #1
 		System.out.println("\nExecuting query1.");
 		StringBuilder answer = new StringBuilder();
-		
 
 		// Print out json response and return it to calling function
 		System.out.println(answer.toString());
@@ -183,12 +187,12 @@ public class CosmosDB {
 	 * Query returns number of customers in each market segment
 	 * 
 	 * @throws Exception
-	 * 		if an error occurs
+	 *                   if an error occurs
 	 */
 	public String query2() throws Exception {
 		// TODO: Write query #2
 		System.out.println("\nExecuting query2.");
-		String jsonCustomerReport = "";	
+		String jsonCustomerReport = "";
 
 		// Print out json response and return it to calling function
 		System.out.println(jsonCustomerReport);
@@ -196,16 +200,16 @@ public class CosmosDB {
 	}
 
 	/**
-	 * Query returns all urgent orders placed on or before July, 26, 1998 ordered by total price descending
+	 * Query returns all urgent orders placed on or before July, 26, 1998 ordered by
+	 * total price descending
 	 * 
 	 * @throws Exception
-	 * 		if an error occurs
+	 *                   if an error occurs
 	 */
 	public String query3() throws Exception {
 		// TODO: Write query #3
 		System.out.println("\nExecuting query3.");
 		String jsonOrders = "";
-			
 
 		// Print out json response and return it to calling function
 		System.out.println(jsonOrders);
@@ -216,13 +220,12 @@ public class CosmosDB {
 	 * Query returns a customer and all orders by custkey
 	 * 
 	 * @throws Exception
-	 * 		if an error occurs
+	 *                   if an error occurs
 	 */
 	public String query4(int custkey) throws Exception {
 		// TODO: Write query #4
 		System.out.println("\nExecuting query4.");
 		String jsonCustOrder = "";
-				
 
 		// Print out json response and return it to calling function
 		System.out.println(jsonCustOrder);

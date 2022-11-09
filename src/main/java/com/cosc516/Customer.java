@@ -11,9 +11,9 @@ public class Customer {
     private String c_mktsegment;
     private String c_comment;
 
-    public Customer()
-    {}
-    
+    public Customer() {
+    }
+
     public Customer(Integer c_custkey, String c_name, String c_address, Integer c_nationkey, String c_phone,
             Double c_acctbal, String c_mktsegment, String c_comment) {
         this.c_custkey = c_custkey;
